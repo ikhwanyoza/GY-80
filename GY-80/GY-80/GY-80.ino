@@ -4,6 +4,9 @@
 
 /* Assign a unique ID to this sensor at the same time */
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);
+//button
+const int buttonPin = 2;
+int buttonState = 0;
 
 void setup(void) {
   Serial.begin(9600);  
@@ -14,6 +17,9 @@ void setup(void) {
     Serial.println("Err");
     while(1);
   }
+
+  //button
+  pinMode(buttonPin, INPUT);
 
   /* Set the range to whatever is appropriate for your project */
   accel.setRange(ADXL345_RANGE_16_G);
@@ -28,6 +34,15 @@ void loop(void)
   /* Get a new sensor event */ 
   sensors_event_t event; 
   accel.getEvent(&event);
+
+  buttonState = digitalRead(buttonPin);
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH) {
+    Serial.print("HIGH");
+  } else {
+    Serial.print("LOW");
+  }
  
   /* Display the results (acceleration is measured in m/s^2) */
   Serial.print("X: "); Serial.print(event.acceleration.x); Serial.print("  ");
