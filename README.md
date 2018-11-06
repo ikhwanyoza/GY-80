@@ -52,3 +52,6 @@ Pairing BT Modul dengan perangkat Desktop (Windows)
 11. install, dan buka, pilih connection type : Serial
 12. masukkan COM pada bt modul
 13. click Open
+
+--------------------------------
+check the project running video here : https://youtu.be/gT_bU4wAG4c
