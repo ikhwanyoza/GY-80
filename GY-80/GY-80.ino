@@ -39,14 +39,15 @@ void loop(void)
 
   // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
   if (buttonState == HIGH) {
-    Serial.print("HIGH");
+    Serial.print("HIGH,");
   } else {
-    Serial.print("LOW");
+    Serial.print("LOW,");
   }
  
   /* Display the results (acceleration is measured in m/s^2) */
-  Serial.print("X: "); Serial.print(event.acceleration.x); Serial.print("  ");
-  Serial.print("Y: "); Serial.print(event.acceleration.y); Serial.print("  ");
-  Serial.print("Z: "); Serial.print(event.acceleration.z); Serial.print("  ");Serial.println("m/s^2 ");
+  Serial.print(event.acceleration.x); Serial.print(",");
+  Serial.print(event.acceleration.y); Serial.print(",");
+  Serial.print(event.acceleration.z); Serial.print(",");
+  Serial.println();
   delay(10);
 }
